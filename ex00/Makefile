@@ -1,4 +1,4 @@
-NAME = array
+NAME = easyFind
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++20
 FILES = \
