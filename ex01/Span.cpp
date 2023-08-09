@@ -16,7 +16,14 @@ Span::~Span(void) {
 }
 
 Span& Span::operator=(const Span& toCopy) {
-	;
+	if (this != &toCopy) {
+		std::vector<int>::const_iterator iter = toCopy.intList.begin();
+		intList.clear();
+		maxInteger = toCopy.maxInteger;
+		for (; iter < toCopy.intList.end(); iter++)
+			intList.push_back(*iter);
+	}
+	return (*this);
 }
 
 unsigned int Span::shortestSpan(void) {
