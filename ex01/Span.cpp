@@ -1,5 +1,6 @@
 #include "Span.hpp"
 #include <algorithm>
+#include <stdexcept>
 
 Span::Span(unsigned int n) {
 	maxInteger = n;
@@ -28,13 +29,19 @@ Span& Span::operator=(const Span& toCopy) {
 }
 
 unsigned int Span::shortestSpan(void) {
-	std::abs(std::min_element(intList.begin(), intList.end()) - std::max_element(intList.begin(), intList.end()));
+	if (intList.size() < 2)
+		throw std::invalid_argument("No integers in list to find span between.");
+	return(std::abs(std::min_element(intList.begin(), intList.end()) - std::max_element(intList.begin(), intList.end())));
 }
 
 unsigned int Span::longestSpan(void) {
-	;
+	if (intList.size() < 2)
+		throw std::invalid_argument("No integers in list to find span between.");
+	return (std::abs(std::max_element(intList.begin(), intList.end()) - std::min_element(intList.begin(), intList.end())));
 }
 
 void Span::addNumber(int n) {
-	;
+	if (intList.size() >= maxInteger)
+		throw std::invalid_argument("Span is full.");
+	intList.push_back(n);
 }
