@@ -1,4 +1,5 @@
 #include "Span.hpp"
+#include <algorithm>
 
 Span::Span(unsigned int n) {
 	maxInteger = n;
@@ -27,7 +28,7 @@ Span& Span::operator=(const Span& toCopy) {
 }
 
 unsigned int Span::shortestSpan(void) {
-	;
+	std::abs(std::min_element(intList.begin(), intList.end()) - std::max_element(intList.begin(), intList.end()));
 }
 
 unsigned int Span::longestSpan(void) {

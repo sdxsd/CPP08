@@ -2,6 +2,8 @@
 #define SPAN_H
 
 #include <vector>
+#include <algorithm>
+#include <cmath>
 
 class Span {
 	private:
