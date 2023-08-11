@@ -2,6 +2,7 @@ NAME = span
 CC = c++
 FLAGS = -Wall -Wextra -Werror -std=c++20
 FILES = \
+		Span.cpp \
 		main.cpp
 OFILES = $(FILES:.cpp=.o)
 

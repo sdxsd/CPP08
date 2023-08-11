@@ -37,7 +37,9 @@ unsigned int Span::shortestSpan(void) {
 unsigned int Span::longestSpan(void) {
 	if (intList.size() < 2)
 		throw std::invalid_argument("No integers in list to find span between.");
-	return (std::abs(std::max_element(intList.begin(), intList.end()) - std::min_element(intList.begin(), intList.end())));
+	std::vector<int> sorted = intList;
+	std::sort(sorted.begin(), sorted.end());
+	return (sorted.back() - sorted.front());
 }
 
 void Span::addNumber(int n) {

@@ -17,6 +17,9 @@ class Span {
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
 		void addNumber(int n);
+		template <typename Iter> void addMultipleNumbers(Iter begin, Iter end) {
+			intList.insert(intList.end(), begin, end);
+		}
 };
 
 #endif // SPAN_H
