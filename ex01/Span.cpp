@@ -1,6 +1,4 @@
 #include "Span.hpp"
-#include <algorithm>
-#include <stdexcept>
 
 Span::Span(unsigned int n) {
 	maxInteger = n;
@@ -46,4 +44,17 @@ void Span::addNumber(int n) {
 	if (intList.size() >= maxInteger)
 		throw std::invalid_argument("Span is full.");
 	intList.push_back(n);
+}
+
+void Span::displayNumbers(void) {
+	for (unsigned int i = 0; i < intList.size(); i++)
+		std::cout << intList[i] << std::endl;
+}
+
+unsigned int Span::spanSize(void) {
+	return (intList.size());
+}
+
+unsigned int Span::spanCapacity(void) {
+	return (maxInteger - intList.size());
 }

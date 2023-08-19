@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include <cmath>
+#include <stdexcept>
+#include <iostream>
 
 class Span {
 	private:
@@ -17,6 +19,9 @@ class Span {
 		unsigned int shortestSpan(void);
 		unsigned int longestSpan(void);
 		void addNumber(int n);
+		void displayNumbers(void);
+		unsigned int spanSize(void);
+		unsigned int spanCapacity(void);
 		template <typename Iter> void addMultipleNumbers(Iter begin, Iter end) {
 			intList.insert(intList.end(), begin, end);
 		}
