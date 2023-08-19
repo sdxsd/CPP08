@@ -9,7 +9,7 @@ void fillSpan(Span &span, unsigned int numCount, unsigned int numLimit) {
 	std::uniform_int_distribution<int> distribution(INT32_MIN, INT32_MAX);
 	std::vector<int> numVec;
 
-	if (numCount > numLimit)
+	if (numCount > span.spanCapacity())
 		return;
 	for (unsigned int i = 0; i < numCount; i++)
 		numVec.push_back(distribution(rng));
