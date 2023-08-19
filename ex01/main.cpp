@@ -18,16 +18,15 @@ void fillSpan(Span &span, unsigned int numCount) {
 
 int main(void) {
 	Span sp = Span(20000);
-	std::vector<int> x = {1, 5, 65, 93, 21, 20, 28};
+	std::vector<int> x = {11, 84, 32, 41, 8438, 23, 1};
 	sp.addNumber(6);
 	sp.addNumber(3);
 	sp.addNumber(17);
 	sp.addNumber(9);
 	sp.addNumber(11);
 	sp.addMultipleNumbers(x.begin(), x.end());
-	fillSpan(sp, 1);
+	fillSpan(sp, 50);
 	std::cout << sp.shortestSpan() << std::endl;
 	std::cout << sp.longestSpan() << std::endl;
-	// sp.displayNumbers();
 	return 0;
 }
