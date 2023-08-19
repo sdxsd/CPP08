@@ -34,7 +34,7 @@ unsigned int Span::shortestSpan(void) {
 	std::sort(sortedIntList.begin(), sortedIntList.end());
 	unsigned int shortest = std::numeric_limits<int>::max();
 	for (unsigned int i = 1; i < sortedIntList.size(); i++) {
-		int span = sortedIntList[i] - sortedIntList[i - 1];
+		unsigned int span = sortedIntList[i] - sortedIntList[i - 1];
 		if (span < shortest)
 			shortest = span;
 	}
