@@ -9,16 +9,14 @@
 template <typename T> class MutantStack : public std::stack<T> {
 	public:
 		MutantStack(void) { return ; }
-		MutantStack(const MutantStack& toCopy) {
-			*this = toCopy;
-		}
+		// Uses the std::stack<T> copy constructor to initialise itself.
+		MutantStack(const MutantStack& toCopy): std::stack<T>(toCopy) { ; }
 		~MutantStack(void) { return ; }
 		MutantStack& operator=(const MutantStack<T>& toCopy) {
-			if (*this != toCopy)
+			if (this != &toCopy)
 				(std::stack<T>)*this = (std::stack<T>)toCopy;
 			return (*this);
 		}
-
 		// Typename required to ensure that the compiler knows that
 		// std::stack<T>::container_type::iterator is a type and not a
 		// static member or some other strange C++ almagamation.
@@ -29,10 +27,10 @@ template <typename T> class MutantStack : public std::stack<T> {
 			return (this->c.end());
 		}
 		// Const iterators.
-		typename std::stack<T>::container_type::const_iterator begin(void) const {
+		const typename std::stack<T>::container_type::const_iterator begin(void) const {
 			return (this->c.begin());
 		}
-		typename std::stack<T>::container_type::const_iterator end(void) const {
+		const typename std::stack<T>::container_type::const_iterator end(void) const {
 			return (this->c.end());
 		}
 		// Reverse iterators.
@@ -43,10 +41,10 @@ template <typename T> class MutantStack : public std::stack<T> {
 			return (this->c.rend());
 		}
 		// Constant reverse iterators.
-		typename std::stack<T>::container_type::const_reverse_iterator rbegin(void) const {
+		const typename std::stack<T>::container_type::const_reverse_iterator rbegin(void) const {
 			return (this->c.rbegin());
 		}
-		typename std::stack<T>::container_type::const_reverse_iterator rend(void) const {
+		const typename std::stack<T>::container_type::const_reverse_iterator rend(void) const {
 			return (this->c.rend());
 		}
 };
